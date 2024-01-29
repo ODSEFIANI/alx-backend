@@ -2,7 +2,7 @@
 '''pagination
 '''
 import csv
-from typing import List
+from typing import List, Tuple
 
 
 def index_range(page, page_size):
