@@ -9,7 +9,7 @@ from typing import Dict, List
 
 
 class Server:
-    """Server class to paginate a database of popular baby names.
+    """Sclass derver
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
@@ -18,18 +18,18 @@ class Server:
         self.__indexed_dataset = None
 
     def dataset(self) -> List[List]:
-        """Cached dataset
+        """dunction
         """
         if self.__dataset is None:
-            with open(self.DATA_FILE) as file:
-                reader = csv.reader(file)
+            with open(self.DATA_FILE) as f:
+                reader = csv.reader(f)
                 dataset = [row for row in reader]
             self.__dataset = dataset[1:]
 
         return self.__dataset
 
     def indexed_dataset(self) -> Dict[int, List]:
-        """Dataset indexed by sorting position, starting at 0
+        """indexing
         """
         if self.__indexed_dataset is None:
             dataset = self.dataset()
@@ -39,20 +39,20 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, start_index: int = None, page_size: int = 10) -> dict:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> dict:
         """
-        hyper index
+        gethyper
         """
-        requested_data = []
-        next_index = start_index + page_size
-        for idx in range(start_index, start_index + page_size):
+        dt = []
+        folowing = index + page_size
+        for idx in range(index, index + page_size):
             if not self.indexed_dataset().get(idx):
-                next_index += 1
-            requested_data.append(self.indexed_dataset()[idx])
-        result = {
-            'data': requested_data,
-            'start_index': start_index,
-            'next_index': next_index,
-            'page_size': page_size
-        }
-        return result
+                folowing += 1
+            dt.append(self.indexed_dataset()[idx])
+        rst = {
+                  'data': dt,
+                  'index': index,
+                  'next_index': folowing,
+                  'page_size': page_size
+                  }
+        return rst
