@@ -1,8 +1,4 @@
 #!/usr/bin/env python3
-'''pagination
-'''
-
-#!/usr/bin/env python3
 """
 1. Simple pagination
 """
@@ -30,6 +26,7 @@ class Server:
 
         return self.__dataset
 
+
     def get_page(self, page_number: int = 1, items_per_page: int = 10) -> List[List]:
         """
         Finds the correct indexes to paginate dataset.
@@ -51,4 +48,3 @@ def index_range(page: int, page_size: int) -> Tuple[int, int]:
     Returns a tuple containing a start and end index.
     """
     return ((page - 1) * page_size, page * page_size)
-
