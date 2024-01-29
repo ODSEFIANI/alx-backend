@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 '''pagination
 '''
+
 def index_range(page, page_size):
     """
     Calculate the start and end indices for a given page and page size.
