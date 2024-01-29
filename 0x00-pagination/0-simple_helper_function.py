@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
-1. Simple pagination
+1. basics of pagination
 """
-
 import csv
 from typing import List, Tuple
 
@@ -26,6 +25,7 @@ class Server:
 
         return self.__dataset
 
+
     def get_page(self, page_number: int = 1, items_per_page: int = 10) -> List[List]:
         """
         Finds the correct indexes to paginate dataset.
@@ -40,6 +40,7 @@ class Server:
         if start_index >= csv_size:
             return []
         return self.dataset()[start_index:end_index]
+
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
     """
