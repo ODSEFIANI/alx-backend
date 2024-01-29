@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 '''pagination
 '''
-#!/usr/bin/env python3
-"""
-Contains class with methods to create simple pagination from csv data
-"""
 import csv
 from typing import List
 index_range = __import__('0-simple_helper_function').index_range
