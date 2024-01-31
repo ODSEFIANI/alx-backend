@@ -39,8 +39,7 @@ class Server:
             return []
         return self.dataset()[start_index:end_index]
 
-    def get_hyper(self, page_number: int = 1,
-    items_per_page: int = 10) -> Dict[str, any]:
+    def get_hyper(self, page_number: int = 1, items_per_page: int = 10) -> Dict[str, any]:
     """function
     """
         assert isinstance(page_number, int)
@@ -52,8 +51,7 @@ class Server:
         csv_size = len(self.dataset())
         total_pages = math.ceil(csv_size / items_per_page)
 
-        next_page = page_number + 1 \
-        if (page_number * items_per_page) < csv_size else None
+        next_page = page_number + 1 if (page_number * items_per_page) < csv_size else None
         prev_page = page_number - 1 if page_number > 1 else None
 
         return {
