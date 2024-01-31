@@ -7,6 +7,8 @@ import math
 
 
 class Server:
+    """class
+    """
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
@@ -33,7 +35,8 @@ class Server:
             return []
         return self.dataset()[start_index:end_index]
 
-    def get_hyper(self, page_number: int = 1, items_per_page: int = 10) -> Dict[str, any]:
+    def get_hyper(self, page_number: int = 1,
+    items_per_page: int = 10) -> Dict[str, any]:
         assert isinstance(page_number, int)
         assert isinstance(items_per_page, int)
         assert page_number > 0
@@ -43,7 +46,8 @@ class Server:
         csv_size = len(self.dataset())
         total_pages = math.ceil(csv_size / items_per_page)
 
-        next_page = page_number + 1 if (page_number * items_per_page) < csv_size else None
+        next_page = page_number + 1 \
+        if (page_number * items_per_page) < csv_size else None
         prev_page = page_number - 1 if page_number > 1 else None
 
         return {

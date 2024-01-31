@@ -6,7 +6,10 @@ from typing import List, Tuple
 
 
 def index_range(page, page_size):
-    if not isinstance(page, int) or not isinstance(page_size, int) or page <= 0 or page_size <= 0:
+    """funcion
+    """
+    if not isinstance(page, int) or not isinstance(page_size, int) or
+    page <= 0 or page_size <= 0:
         raise ValueError("Both arguments must be integers greater than 0.")
     
     start_index, end_index = (page - 1) * page_size, page * page_size
@@ -14,12 +17,12 @@ def index_range(page, page_size):
 
 
 class Server:
+    """class
+    """
     DATA_FILE = "Popular_Baby_Names.csv"
-
 
     def __init__(self):
         self.__dataset = None
-
 
     def dataset(self) -> List[List]:
         if self.__dataset is None:
@@ -30,11 +33,9 @@ class Server:
 
         return self.__dataset
 
-
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         try:
             start_index, end_index = index_range(page, page_size)
             return self.dataset()[start_index:end_index]
         except ValueError:
             return []
-
