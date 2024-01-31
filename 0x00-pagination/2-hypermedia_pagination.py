@@ -25,8 +25,7 @@ class Server:
 
         return self.__dataset
 
-    def get_page(self, page_number: int = 1,
-    items_per_page: int = 10) -> List[List]:
+    def get_page(self, page_number: int = 1, items_per_page: int = 10) -> List[List]:
     """function
     """
         assert isinstance(page_number, int)
