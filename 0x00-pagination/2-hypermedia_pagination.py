@@ -15,6 +15,8 @@ class Server:
         self.__dataset = None
 
     def dataset(self) -> List[List]:
+        """dunction
+        """
         if self.__dataset is None:
             with open(self.DATA_FILE) as f:
                 reader = csv.reader(f)
@@ -23,7 +25,10 @@ class Server:
 
         return self.__dataset
 
-    def get_page(self, page_number: int = 1, items_per_page: int = 10) -> List[List]:
+    def get_page(self, page_number: int = 1,
+    items_per_page: int = 10) -> List[List]:
+    """function
+    """
         assert isinstance(page_number, int)
         assert isinstance(items_per_page, int)
         assert page_number > 0
@@ -37,6 +42,8 @@ class Server:
 
     def get_hyper(self, page_number: int = 1,
     items_per_page: int = 10) -> Dict[str, any]:
+    """function
+    """
         assert isinstance(page_number, int)
         assert isinstance(items_per_page, int)
         assert page_number > 0
@@ -61,4 +68,6 @@ class Server:
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """function
+    """
     return ((page - 1) * page_size, page * page_size)
