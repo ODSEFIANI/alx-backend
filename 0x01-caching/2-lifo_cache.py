@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
-""" BaseCaching py module
+""" BaseCaching module
 """
 from base_caching import BaseCaching
 
 
 class LIFOCache(BaseCaching):
     """
-    FIFO algo
+    FIFOCache defines a FIFO caching system
     """
 
     def __init__(self):
         """
-        Inherits from the basechavhin
+        Initialize the class with the parent's init method
         """
         super().__init__()
         self.lst = []
@@ -28,8 +28,8 @@ class LIFOCache(BaseCaching):
                 print("DISCARD: {}".format(self.lst[-1]))
                 del self.cache_data[self.lst[-1]]
                 del self.lst[-1]
-            if key in self.lst
-                del self.lst[self.order.index(key)]
+            if key in self.lst:
+                del self.lst[self.lst.index(key)]
             self.lst.append(key)
             self.cache_data[key] = item
 
